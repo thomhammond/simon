@@ -45,16 +45,16 @@ function playPattern(randomColor) {
   switch (this.currentMode) {
     case "single":
       setTimeout(() => {
-        animatePad(randomColor);
         playSound(randomColor);
+        animatePad(randomColor);
       }, 500);
       break;
     case "reverse":
       var i = this.simonPattern.length - 1;
       setInterval(function () {
         if (i >= 0) {
-          animatePad(this.simonPattern[i]);
           playSound(this.simonPattern[i]);
+          animatePad(this.simonPattern[i]);
           i--;
         } else {
           return;
@@ -66,8 +66,8 @@ function playPattern(randomColor) {
       var len = this.simonPattern.length;
       setInterval(function () {
         if (i < len) {
-          animatePad(this.simonPattern[i]);
           playSound(this.simonPattern[i]);
+          animatePad(this.simonPattern[i]);
           i++;
         } else {
           return;
@@ -114,8 +114,7 @@ function resetGame() {
 
 // UI handlers
 function playSound(color) {
-  let audio = new Audio("simon_sounds/" + color + ".mp3");
-  audio.play();
+  new Audio("simon_sounds/" + color + ".mp3").play();
 }
 
 function animatePad(color) {
