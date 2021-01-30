@@ -133,8 +133,8 @@ function updateScore() {
 }
 
 function clickHandler(color) {
-  animatePad(color);
   playSound(color);
+  animatePad(color);
   this.playerPattern.push(color);
   checkAnswer(this.index);
 }
