@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>SIMON</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <a href="https://thomhammond.github.io/" class="home-icon">
+          <i class="fas fa-home fa-2x"></i>
+        </a>
+        <span id="score" class="header-text">THINK FAST!</span>
+        <div class="info-icon">
+          <i class="far fa-question-circle fa-2x"></i>
+        </div>
+      </header>
+
+      <!-- Trivia overlay -->
+      <div class="trivia invisible">
+        <p id="final-score"></p>
+        <p id="trivia-text"></p>
+        <div class="play-again-wrapper">
+          <button class="play-again">Play Again?</button>
+        </div>
+      </div>
+
+      <!-- SIMON game pad -->
+      <div class="gameBoard">
+        <div class="fill"></div>
+        <div class="outer">
+          <div class="padRow">
+            <div class="pad green" id="green"></div>
+            <div class="pad red" id="red"></div>
+          </div>
+          <div class="inner">
+            <div class="console">
+              <button class="power-btn">
+                <i class="fas fa-power-off"></i>
+              </button>
+              <p class="game-title">SIMON</p>
+            </div>
+          </div>
+          <div class="padRow">
+            <div class="pad yellow" id="yellow"></div>
+            <div class="pad blue" id="blue"></div>
+          </div>
+          <div class="stripe horizontal"></div>
+          <div class="stripe vertical"></div>
+        </div>
+        <div class="fill"></div>
+      </div>
+
+      <footer>
+        <p>MODE: <span id="mode-title">CLASSIC</span></p>
+        <div class="gamemode-container">
+          <div id="classic" class="gamemode-btn">
+            <div class="gamemode-active"></div>
+          </div>
+          <div id="single" class="gamemode-btn">
+            <div class="gamemode-inactive"></div>
+          </div>
+          <div id="reverse" class="gamemode-btn">
+            <div class="gamemode-inactive"></div>
+          </div>
+          <div id="graymode" class="gamemode-btn">
+            <div class="gamemode-inactive"></div>
+          </div>
+          <div id="creator" class="gamemode-btn">
+            <div class="gamemode-inactive"></div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
