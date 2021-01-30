@@ -179,8 +179,14 @@ function setGrayMode(graymode) {
 
 // Set up game pads
 this.padColors.forEach((pad) => {
+  document.getElementById(pad).addEventListener("touchstart", (event) => {
+    clickHandler(event.target.id);
+    event.stopPropagation();
+    event.preventDefault();
+  });
   document.getElementById(pad).addEventListener("click", (event) => {
     clickHandler(event.target.id);
+    event.stopPropagation();
     event.preventDefault();
   });
 });
