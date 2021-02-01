@@ -6,6 +6,20 @@ var index = 0;
 var padColors = ["red", "blue", "green", "yellow"];
 var gameModes = ["classic", "single", "graymode", "reverse", "creator"];
 var currentMode = "classic";
+var sounds = {
+  red: new Audio("simon_sounds/red.mp3"),
+  blue: new Audio("simon_sounds/blue.mp3"),
+  green: new Audio("simon_sounds/green.mp3"),
+  yellow: new Audio("simon_sounds/yellow.mp3"),
+};
+
+const triviaText = [
+  "SIMON is an electronic game of memory skill invented by Ralph H. Baer and Howard J. Morrison and released by the American board game company Milton Bradley in 1978.",
+  "Simon debuted in 1978 at a retail price of $24.95 (equivalent to $98 in 2020) and became one of the top-selling toys that Christmas.",
+  "The creators of SIMON were originally inspired by Atari's arcade game TOUCH ME which they felt had 'nice gameplay' but 'terrible exectution'",
+  "The SIMON prototype used the low cost Texas Instruments TMS 1000 microcontroller chip, which was used in many popular games of the 1970s",
+  "SIMON's tones were designed to always be harmonic, no matter the sequence, and consisted of an A major triad in second inversion, resembling a trumpet fanfare",
+];
 
 // logic functions
 function updateSimonPattern() {
@@ -114,7 +128,7 @@ function resetGame() {
 
 // UI handlers
 function playSound(color) {
-  new Audio("simon_sounds/" + color + ".mp3").play();
+  this.sounds[color].play();
 }
 
 function animatePad(color) {
@@ -204,11 +218,3 @@ document.querySelectorAll(".gamemode-btn").forEach((btn) => {
     event.preventDefault();
   });
 });
-
-const triviaText = [
-  "SIMON is an electronic game of memory skill invented by Ralph H. Baer and Howard J. Morrison and released by the American board game company Milton Bradley in 1978.",
-  "Simon debuted in 1978 at a retail price of $24.95 (equivalent to $98 in 2020) and became one of the top-selling toys that Christmas.",
-  "The creators of SIMON were originally inspired by Atari's arcade game TOUCH ME which they felt had 'nice gameplay' but 'terrible exectution'",
-  "The SIMON prototype used the low cost Texas Instruments TMS 1000 microcontroller chip, which was used in many popular games of the 1970s",
-  "SIMON's tones were designed to always be harmonic, no matter the sequence, and consisted of an A major triad in second inversion, resembling a trumpet fanfare",
-];
