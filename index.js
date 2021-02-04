@@ -223,7 +223,7 @@ function animatePad(color) {
   setTimeout(() => {
     pad.classList.add("show");
     pad.classList.remove("hide");
-  }, 50);
+  }, 100);
 }
 
 function updateRound() {
