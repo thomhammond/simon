@@ -21,13 +21,13 @@ const gameModeText = {
   classic:
     "Classic Mode is just like the real Simon game! Repeat the full pattern every round to advance!",
   single:
-    "Press the play button to begin a game.\nSingle Mode only shows you the last color and sound but you must repeat the full pattern every round to advance!\nPress the refresh button to restart the game.",
+    "Single Mode only shows you the last color and sound but you must repeat the full pattern every round to advance!",
   reverse:
-    "Press the play button to begin a game.\nIn Reverse Mode, you must play the pattern backwards  every round to advance!\nPress the refresh button to restart the game.",
+    "In Reverse Mode, you must play the pattern backwards  every round to advance!",
   graymode:
-    "Press the play button to begin a game.\nGray Mode is just like Classic Mode but all the pads are gray! Repeat the full pattern every round to advance!\nPress the refresh button to restart the game.",
+    "Gray Mode is just like Classic Mode but all the pads are gray! Repeat the full pattern every round to advance!",
   freestyle:
-    "Press the play button to begin a game.\nFreestyle Mode lets you play without worrying about a pattern. Just have fun!\nPress the refresh button to restart the game.",
+    "Freestyle Mode lets you play without worrying about a pattern. Just have fun!",
 };
 
 // Adds a new random color to the gamePattern
