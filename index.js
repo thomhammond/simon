@@ -42,7 +42,7 @@ function updatePattern() {
 
 function checkAnswer(currentIndex) {
   if (playerPattern[currentIndex] != gamePattern[currentIndex]) {
-    let audio = new Audio("simon_sounds/wrong.mp3");
+    let audio = new Audio("my_simon_sounds/wrong.mp3");
     audio.play();
     gameOver();
     return;
@@ -212,7 +212,7 @@ function defaultPattern() {
 
 // UI handlers
 function playSound(color) {
-  let audio = new Audio("simon_sounds/" + color + ".mp3");
+  let audio = new Audio("my_simon_sounds/" + color + ".mp3");
   audio.play();
 }
 
