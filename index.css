@@ -308,12 +308,12 @@ hr {
     height: calc(50vh - 300px);
   }
   .pad {
-    width: 210px;
-    height: 210px;
+    width: 215px;
+    height: 215px;
   }
   .stripe {
     width: 450px;
-    top: 202.5px;
+    top: 210px;
   }
   header {
     border-radius: 10px 10px 0 0;
