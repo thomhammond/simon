@@ -4,7 +4,7 @@ var playerPattern = [];
 var level = 1;
 var index = 0;
 var padColors = ["red", "blue", "green", "yellow"];
-var gameModes = ["classic", "single", "graymode", "reverse", "creator"];
+var gameModes = ["classic", "single", "graymode", "reverse", "freestyle"];
 var currentMode = "classic";
 var playPattern = defaultPattern;
 var intervalHandle = null;
@@ -16,6 +16,19 @@ const triviaText = [
   "The SIMON prototype used the low cost Texas Instruments TMS 1000 microcontroller chip, which was used in many popular games of the 1970s",
   "SIMON's tones were designed to always be harmonic, no matter the sequence, and consisted of an A major triad in second inversion, resembling a trumpet fanfare",
 ];
+
+const gameModeText = {
+  classic:
+    "Classic Mode is just like the real Simon game! Repeat the full pattern every round to advance!",
+  single:
+    "Press the play button to begin a game.\nSingle Mode only shows you the last color and sound but you must repeat the full pattern every round to advance!\nPress the refresh button to restart the game.",
+  reverse:
+    "Press the play button to begin a game.\nIn Reverse Mode, you must play the pattern backwards  every round to advance!\nPress the refresh button to restart the game.",
+  graymode:
+    "Press the play button to begin a game.\nGray Mode is just like Classic Mode but all the pads are gray! Repeat the full pattern every round to advance!\nPress the refresh button to restart the game.",
+  freestyle:
+    "Press the play button to begin a game.\nFreestyle Mode lets you play without worrying about a pattern. Just have fun!\nPress the refresh button to restart the game.",
+};
 
 // Adds a new random color to the gamePattern
 function updatePattern() {
@@ -55,6 +68,9 @@ function setGameMode(mode) {
     return;
   }
   resetGame();
+  let pBtn = document.querySelector(".play");
+  pBtn.classList.remove("fa-sync");
+  pBtn.classList.add("fa-play");
   document.getElementById("mode-title").textContent = mode.toUpperCase();
   document.querySelector("#round").textContent = "THINK FAST!";
   currentMode = mode;
@@ -127,6 +143,29 @@ function gameOver() {
     { once: true }
   );
   resetGame();
+}
+
+function showInfo() {
+  let gameBoard = document.querySelector(".outer");
+  let info = document.querySelector(".info");
+  let infoText = document.querySelector(".info-text");
+  let infoBtn = document.querySelector(".far");
+  gameBoard.classList.add("invisible");
+  info.classList.remove("invisible");
+  infoText.textContent = gameModeText[currentMode];
+  infoBtn.classList.remove("fa-question-circle");
+  infoBtn.classList.add("fa-times-circle");
+
+  document.querySelector(".info-icon").addEventListener("click", () => {
+    gameBoard.classList.remove("invisible");
+    info.classList.add("invisible");
+    infoBtn.classList.remove("fa-times-circle");
+    infoBtn.classList.add("fa-question-circle");
+
+    document.querySelector(".info-icon").addEventListener("click", () => {
+      showInfo();
+    });
+  });
 }
 
 function clickHandler(color) {
@@ -213,6 +252,9 @@ document.querySelector(".power-btn").addEventListener("click", () => {
   updateRound();
   updatePattern();
   playPattern();
+  let pBtn = document.querySelector(".play");
+  pBtn.classList.remove("fa-play");
+  pBtn.classList.add("fa-sync");
 });
 
 // Set up gamemode buttons
@@ -221,4 +263,8 @@ document.querySelectorAll(".gamemode-btn").forEach((btn) => {
     setGameMode(event.target.id);
     event.preventDefault();
   });
+});
+
+document.querySelector(".info-icon").addEventListener("click", () => {
+  showInfo();
 });
