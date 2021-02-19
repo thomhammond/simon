@@ -212,7 +212,9 @@ function defaultPattern() {
 
 // UI handlers
 function playSound(color) {
-  let audio = new Audio("my_simon_sounds/" + color + ".mp3");
+  const audio = document.querySelector(`audio[class="${color}"]`);
+  // let audio = new Audio("my_simon_sounds/" + color + ".mp3");
+  audio.currentTime = 0;
   audio.play();
 }
 
